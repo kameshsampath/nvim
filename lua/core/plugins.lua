@@ -12,7 +12,7 @@ end
 
 return require("packer").startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'catppuccin/nvim'
+  use 'navarasu/onedark.nvim'
   use 'nvim-tree/nvim-web-devicons'
   use 'matbme/JABS.nvim'
 
