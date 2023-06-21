@@ -11,12 +11,29 @@ noremap <Right> <Nop>
 "     - Reconfiguring Splits -
 " -----------------------------------------------------------------------------
 
-nnoremap \h :split<CR> 
-nnoremap \v :vsplit<CR> 
+nnoremap <leader>h :split<CR> 
+nnoremap <leader>v :vsplit<CR> 
+
+" -----------------------------------------------------------------------------
+"     - Dimming inactive panes -
+" -----------------------------------------------------------------------------
+
+hi ActiveWindow guibg=#141a24
+hi InactiveWindow guibg=#282c3f
+
+augroup WindowManagement
+  autocmd!
+  autocmd WinEnter * call Handle_Win_Enter()
+augroup END
+
+function! Handle_Win_Enter()
+  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+ endfunction
 
 " -----------------------------------------------------------------------------
 "     - Human error correction -
 " -----------------------------------------------------------------------------
+
 :command! W w
 :command! Q q
 :command! Wq wq
